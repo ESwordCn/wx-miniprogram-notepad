@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "Tabs":"../../components/Tabs/Tabs",
+    "van-button": "@vant/weapp/button/index"
+
+  },
+
+  "backgroundTextStyle":"dark"
+}

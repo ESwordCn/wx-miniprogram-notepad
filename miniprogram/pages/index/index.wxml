@@ -1,0 +1,102 @@
+<!-- index.wxml -->
+<view class="container">
+
+
+  
+  <van-toast id="van-toast" />
+  <van-notice-bar
+  left-icon="volume-o"
+  scrollable="{{ false }}"
+  
+  mode="closeable"
+  >
+    <text>记ALL  ——  留下你</text>
+  
+    <text style='text-decoration:line-through;'>(没好)</text>
+    <text >美好生活的印记</text>
+  </van-notice-bar>
+
+  <van-transition name='slide-down' show="{{ showSearch }}" custom-class="block">
+    <van-search label="{{searchType || '全部'}}" value="{{ search_val }}" bind:search='onSearch' placeholder="请输入搜索关键词" />
+  </van-transition>
+  
+
+  <van-tabs color='#1989FA' sticky animated active="{{ active }}" bind:change="handleTabsItemChange">
+    <van-tab  title="全部"/> 
+    <van-tab  wx:for="{{type_list}}" wx:key='id' title="{{item.title}}">    
+    </van-tab>
+  </van-tabs >
+
+  <!-- 搜索底部 -->
+  <view class="bottom_search">
+    <van-button bind:click='onSearchBtnClick' icon="search" type="info"  round  >{{isSearchEnd?'返回首页':''}}</van-button>
+  </view>
+
+  <van-empty wx:if="{{list.length==0}}" image="error" description="快来添加一条新记录吧!~" />
+
+  
+
+  <van-popup show="{{ showDetail }}" round position='bottom' custom-style="height: 50% ;z-index:999;" bind:close="onDetailClose">
+      <view style="margin-top:30rpx;">
+        <van-cell-group >
+          <van-cell title="备注"  >
+            <view style="word-wrap: break-word;word-break: break-all;white-space: pre-line;" >{{list[detailIndex].remark}}
+            </view>
+
+          </van-cell>
+        </van-cell-group>
+
+      </view>
+      
+    </van-popup>
+
+  <view class="list_item" hidden="{{active!=0&&item.type.id!=active}}" wx:for="{{list}}" wx:key="_id">
+    
+    
+    <van-swipe-cell  right-width="{{ 65 }}" left-width="{{ 65 }}" >
+      <van-cell  is-link data-detail-index='{{index}}' bind:click="showDetail" title="{{item.title}}"   label="{{item.num}}" >
+        <van-icon style='margin-right : 30rpx;' slot='icon' class-prefix='icon' name="{{item.type.picUrl||'jizhang'}}"></van-icon>
+        <view class="value">{{item.time}}</view>
+        <van-tag wx:if="{{item.tag.length!=0}}" plain type="primary">{{item.tag[0].name}}</van-tag>
+      </van-cell>
+
+
+      <view class='edit btn' slot="left" data-id="{{index}}" bindtap='listEdit'>编辑</view>
+      <view class='del btn' slot="right" data-id="{{item._id}}" bindtap="handleDeleteProduct">删除</view>
+
+      
+
+    </van-swipe-cell>
+
+  </view>
+
+    
+  
+
+  <!-- <view class="product-container">
+    <view class="product-list" wx:for="{{list}}" wx:key="_id">
+      <view class="product-item"  wx:if="{{chose=='all' || item.type.type==chose}}" >
+        <movable-area>
+          <movable-view bindtap='listDetail' out-of-bounds="true" direction="horizontal" data-listItemIndex="{{index}}" x="{{item.xmove}}" inertia="true"  bindtouchstart="handleTouchStart" bindtouchend="handleTouchEnd" bindchange="handleMovableChange">
+            <view class="product-item-wrap">
+              <view class="product-movable-item">
+                <view class="image_col">
+                  <image class="left_image" mode="widthFix" src="{{item.type.picUrl||'../../icons/记账.png'}}"></image>
+                </view>
+                <view class="detail_col">
+                  <view class="titleTime">
+                    <view class='list_title'>{{item.title}}</view>
+                    <view class='list_time'>{{item.time}}</view>
+                  </view>
+                  <view class="detail">{{item.text}}</view>
+                </view>
+              </view>
+            </view>
+          </movable-view>
+        </movable-area>
+        <view class="delete-btn" data-id="{{item._id}}" bindtap="handleDeleteProduct">删除</view>
+      </view>
+    </view>
+  </view> -->
+
+</view>

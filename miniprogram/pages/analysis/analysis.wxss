@@ -1,0 +1,26 @@
+.card {
+  margin: 40rpx;
+  padding: 50rpx;
+  border-radius: 30rpx;
+  color: white;
+  height: 250rpx;
+}
+.content {
+  margin-top: 30rpx;
+}
+.type {
+  background-color: white;
+  color: green;
+  padding: 30rpx 0 30rpx 0;
+  border-top: 3rpx grey solid;
+  border-radius: 10rpx 10rpx 10rpx 10rpx;
+  margin: -53rpx 0rpx 0 0;
+  font-size: 60rpx;
+  float: right;
+  font-weight: bold;
+  writing-mode: vertical-rl;
+  box-shadow: 0 5px 5px -5px #000;
+}
+.bold {
+  font-size: 45rpx;
+}

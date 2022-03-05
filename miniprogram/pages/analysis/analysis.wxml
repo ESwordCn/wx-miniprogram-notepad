@@ -1,0 +1,22 @@
+<!--pages/analysis/analysis.wxml-->
+
+<view class="card" style="background-color: {{item.color}};" wx:for="{{info}}">
+    
+    <view class="type" style="color:{{item.color}};">{{item.typeName}}
+        
+    </view>
+    
+    <view class="content">
+        <view class="sport_time" wx:for="{{item.content}}" wx:for-item="item2" >{{item2.key}}<text class="bold">{{item2.value}}</text></view>
+    
+
+    </view>
+    
+</view>
+
+
+
+ 
+
+ 
+

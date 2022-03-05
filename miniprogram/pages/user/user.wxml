@@ -1,0 +1,9 @@
+<!-- <button open-type="getUserProfile" bindgetuserinfo="getUserInfomation">点击获取用户信息</button>
+<image src="{{avatarUrl}}"></image>
+<view>{{city}}</view>
+<view>{{nickName}}</view> -->
+
+<view class="page-body-info ">
+<open-data class="avatar" type="userAvatarUrl" default-avatar="../../icons/user-unlogin.png"></open-data>
+<open-data class="nick" type="userNickName"></open-data>
+</view>

@@ -1,0 +1,16 @@
+<view class="main">
+    <!-- <navigator wx:for="{{typeList}}" wx:key="title" url="{{item.url}}">
+        <image mode="widthFix" src="{{item.picUrl}}"></image>
+        <view class="title">{{item.title}}</view>
+    </navigator> -->
+
+<van-grid column-num="2" clickable gutter='5'  direction='horizontal'>
+  <van-grid-item wx:for="{{typeList}}" wx:key="id" text='{{item.title}}' url="{{item.url}}">
+    <van-icon slot='icon' class-prefix='icon' name='{{item.picUrl}}'></van-icon>
+
+  </van-grid-item>
+</van-grid>
+
+
+
+</view>
