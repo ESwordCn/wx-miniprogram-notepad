@@ -1,0 +1,72 @@
+@import '/miniprogram_npm/@vant/weapp/common/index.wxss';
+@import '/icon/iconfont-weapp/iconfont-weapp-icon.wxss';
+
+/* 在微信小程序中 不支持 通配符 '*'
+/* page,view,text,swiper,swiper-item,image,navigator{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+} 
+
+
+
+ page{
+
+   --themeColor:#FA8072;
+
+      font-size: 25rpx; 
+ }
+
+ image{
+   width: 100%;
+ } */
+
+.inl{
+  display: inline-block;
+}
+
+.pd-l{
+  padding-left: 30rpx;
+}
+.pd-r{
+  padding-right: 26rpx;
+}
+.pd-t{
+  padding-top: 30rpx;
+}
+.pd-b{
+  padding-bottom: 30rpx;
+}
+
+.mg-l{
+  margin-left: 15rpx;
+}
+.mg-r{
+  margin-right: 15rpx;
+}
+.mg-t{
+  margin-top: 15rpx;
+}
+.mg-b{
+  margin-bottom: 15rpx;
+}
+.mg{
+  margin: 24rpx;
+}
+
+
+ page {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 0 0 100rpx;
+  color: #323233;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
+    Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB', 'Microsoft Yahei',
+    sans-serif;
+  background: #f7f8fa;
+  -webkit-font-smoothing: antialiased;
+}
+/* image{
+  width: 85%;
+} */

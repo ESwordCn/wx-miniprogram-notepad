@@ -1,0 +1,81 @@
+{
+  "usingComponents":{
+    "van-switch": "@vant/weapp/switch/index",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-calendar": "@vant/weapp/calendar/index",
+    "van-search": "@vant/weapp/search/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-swipe-cell": "@vant/weapp/swipe-cell/index",
+    "van-card": "@vant/weapp/card/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-transition": "@vant/weapp/transition/index",
+    "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-collapse": "@vant/weapp/collapse/index",
+    "van-collapse-item": "@vant/weapp/collapse-item/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-action-sheet": "@vant/weapp/action-sheet/index",
+    "van-empty": "@vant/weapp/empty/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index"
+
+  },
+  "pages": [
+    "pages/index/index",
+    "pages/user/user",
+    "pages/money/money",
+    "pages/add/add",
+    "pages/choose/choose",
+    "pages/logs/logs",
+    "pages/analysis/analysis"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1989FA",
+    "navigationBarTitleText": "记All",
+    
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "custom":true,
+    "color": "#999",
+    "selectedColor": "#FA8072",
+    "backgroundColor": "#fafafa",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "icons/首页.png",
+        "selectedIconPath": "icons/首页-选中.png"
+      },
+      {
+        "pagePath": "pages/choose/choose",
+        "text": "添加",
+        "iconPath": "icons/添加.png",
+        "selectedIconPath": "icons/添加-选中.png"
+      },
+      {
+        "pagePath": "pages/analysis/analysis",
+        "text": "我的",
+        "iconPath": "icons/我的.png",
+        "selectedIconPath": "icons/我的-选中.png"
+      }
+    ]
+  },
+
+  "sitemapLocation": "sitemap.json"
+}
