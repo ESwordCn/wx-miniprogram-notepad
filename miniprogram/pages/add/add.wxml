@@ -1,0 +1,211 @@
+<van-toast id="van-toast" />
+<van-dialog id="van-dialog" />
+<form bindsubmit='editorSubmit' class='editor_box'>
+<van-cell-group title="{{'添加一条记录'}}">
+      <van-field
+        name='title'
+        value="{{ record.title }}"
+        clearable
+        label="标题"
+        placeholder="请输入标题"
+        title-width='5em'
+        right-icon='fail'
+        bind:click-icon='onTitleDefault'
+      />
+
+      
+      
+
+      <van-field
+
+        name='time'
+        value='{{record.time}}'
+        label="时间"
+        placeholder="请选择日期"
+        title-width='5em'
+        
+        use-input-slot
+      >
+        <view slot='input' style='width:100%' bindtap="onTimeChange" >{{record.time}}</view>
+        <van-calendar slot='input'  show="{{ showCalendar}}" bind:close="onCalendarClose" bind:confirm="onCalendarConfirm" />
+      </van-field>
+
+
+      <van-field
+        clearable
+        label="标签"
+
+        placeholder="请添加不同的类别标签"
+        title-width='5em'
+        right-icon='plus'
+        bind:tap='onTagInputClick'
+
+      >
+        <van-tag  wx:for="{{tag_choose}}" wx:key='id' slot='input' class='pd-r' type="primary" closeable data-name='{{item.name}}' data-index='{{index}}' bind:close="onTagItemClose">{{item.name}}</van-tag>
+      
+        
+        
+        
+      </van-field>
+
+      <!-- 标签弹出框 -->
+      <van-popup show="{{ showTag }}"  position="bottom" custom-style="height: 60%; padding:60rpx 0 0 40rpx" bind:close="onTagClose">
+        
+        <view wx:for="{{tags}}" wx:key='id' class="mg-r mg-b  inl">
+          <van-tag    type="primary" size='large'   >
+            <view class="content" data-index='{{index}}' bindtap="onTagItemClick">{{item.name}} </view>
+            <view style="margin-top:6rpx; margin-left:6rpx" data-index='{{index}}' bindtap="onDeleteTag" class="close" ><van-icon name='cross'/></view>
+            
+          </van-tag>
+        </view>
+
+        <view class="mg-t">
+        <van-field
+            model:value="{{ addTag }}"
+            
+            label='自定义标签'
+            placeholder="请输入自定义标签"
+            name='add_tag'
+            bind:confirm="onAddTag"
+            
+            use-button-slot
+          >
+                <van-button  slot="button" size="small" type="primary"  bind:tap='onAddTag' >添加</van-button>
+          </van-field>
+        </view>
+
+      
+      </van-popup>
+
+       <!-- <van-field
+        name='num'
+        value="{{ record.num }}"
+        clearable
+        label="金额"
+        placeholder="请输入金额"
+        title-width='5em'
+
+      /> -->
+
+      <van-field
+        name='isDone'
+        value="{{ record.isDone }}"
+        label="完成"
+        title-width='5em'
+
+      >
+        <van-radio-group slot='input' value="{{isDoneRadio}}" bind:change='isDoneRadioChange'>
+          <van-radio shape='square' name="Done">是否完成</van-radio>
+        </van-radio-group>
+      </van-field> 
+
+       <!-- <van-field
+        name='studyTime'
+        value="{{ record.studyTime }}"
+        clearable
+        label="学习时长"
+        placeholder="请输入时长"
+        title-width='5em'
+
+      />
+
+      <van-field
+        name='sportTime'
+        value="{{ record.sportTime }}"
+        clearable
+        label="运动时长"
+        placeholder="请输入时长"
+        title-width='5em'
+
+      />
+        
+
+      <van-field
+        name='isDone'
+        value="{{ record.isDone }}"
+        label="完成"
+        title-width='5em'
+
+      >
+        <van-radio-group slot='input' value="{{isDoneRadio}}" bind:change='isDoneRadioChange'>
+          <van-radio shape='square' name="Done">已完成</van-radio>
+        </van-radio-group>
+      </van-field> -->
+
+
+
+      <van-field
+        name='remark'
+        value="{{ record.remark }}"
+        clearable
+        type='textarea'
+        label="备注"
+        placeholder="备注可选哦"
+        title-width='5em'
+        autosize="{{ textarea }}"
+
+      />
+    
+
+      
+    </van-cell-group>
+    
+    
+    
+    <van-row>
+      <van-col span='12'>
+        <view class="mg">
+        <van-button size='large' type="primary" form-type='submit' >保存</van-button>
+        </view>
+      </van-col>
+      <van-col span='12'>
+        <view class="mg">
+        <van-button size='large' type="danger" bind:click='onCancelClick' >取消</van-button>
+      </view>
+      </van-col>
+      
+      
+    </van-row>
+    
+    
+
+    
+
+    
+  </form>
+
+<!-- 
+<form bindsubmit='editorSubmit' class='editor_box'>
+    <view class="title_time box">  
+      <input placeholder='标题' name="title" class='title_inp'  value='{{record.title}}'></input>
+      <picker mode="date" name='time' value="{{record.time}}" start="1999-01-01" end="2099-1-1" bindchange="bindDateChange">  
+        <view class="picker">  
+          {{record.time}}
+        </view>  
+      </picker>  
+    </view>
+    <view class="catalog box">
+      <input placeholder='类别标签' name="tag" class='tag_inp'  value='{{record.tag}}'></input>
+    </view>
+    <view class="money box">
+      <input placeholder='金额' name="num" class='num_inp'  value='{{record.num}}'></input>
+
+    </view>
+    <view class="content box">
+      <textarea placeholder='备注' name="remark" class='content_text' value='{{record.remark}}' ></textarea>
+    </view>
+    
+    <view class="save box">
+      <button class='model_btn' form-type='submit' >保存</button>
+
+    </view>
+
+    <view class="get_step" bindtap="getStepTap">
+      获取微信运动步数
+    </view>
+
+
+    
+
+    
+  </form> -->
